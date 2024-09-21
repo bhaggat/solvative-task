@@ -1,0 +1,25 @@
+.table td,
+.table th {
+  text-align: left;
+  padding: 8px;
+}
+
+.table,
+.table th .table td {
+  border-collapse: collapse;
+}
+
+.table th,
+.table tr td:first-child {
+  font-weight: 700;
+}
+.table th {
+  border-bottom: 2px solid black;
+}
+
+.countryData {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  line-height: 1;
+}

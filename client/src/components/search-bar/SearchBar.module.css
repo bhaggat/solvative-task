@@ -1,0 +1,41 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 241px;
+}
+
+.searchBar {
+  height: 38px;
+  max-height: 38px;
+  width: 100%;
+  font-size: 16px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(206, 212, 218);
+  padding: 6px 70px 6px 12px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.searchBar:focus {
+  border-color: #7952b3;
+  box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
+}
+
+.searchBar:disabled {
+  background-color: rgb(233, 236, 239);
+}
+
+.shortcut {
+  font-size: 12px;
+  border: 1px solid rgb(222, 226, 230);
+  border-radius: 2px;
+  height: 24px;
+  padding: 0 4px;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  transform: translate(-12px, -50%);
+}
