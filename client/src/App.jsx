@@ -3,11 +3,12 @@ import PlacesTable from "./components/places-table/PlacesTable";
 import Pagination from "./components/pagination/Pagination";
 import { fetchPlaces } from "./services/fetchPlaces";
 import { useCallback, useEffect, useState } from "react";
-import { useSearchParamValues } from "./hooks/useSearchParamValues";
 import styles from "./App.module.css";
+import FilterProvider from "./context/FilterProvider";
+import { useSearch } from "./hooks/useSearch";
 
-const App = () => {
-  const [{ page, limit, search }] = useSearchParamValues();
+const Container = () => {
+  const { page, limit, search, updateSearchParams } = useSearch();
   const [places, setPlaces] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -37,19 +38,40 @@ const App = () => {
 
   return (
     <div className={styles.container}>
-      <SearchBar />
+      <SearchBar
+        search={search}
+        limit={limit}
+        page={page}
+        updateSearchParams={updateSearchParams}
+      />
       <PlacesTable
         isLoading={isLoading}
         errorMessage={errorMessage}
         places={places.data}
+        search={search}
+        limit={limit}
+        page={page}
+        updateSearchParams={updateSearchParams}
       />
       <Pagination
         isLoading={isLoading}
         places={places.data}
         total={places.total}
+        search={search}
+        limit={limit}
+        page={page}
+        updateSearchParams={updateSearchParams}
       />
     </div>
   );
 };
+
+function App() {
+  return (
+    <FilterProvider>
+      <Container />
+    </FilterProvider>
+  );
+}
 
 export default App;

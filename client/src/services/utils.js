@@ -13,7 +13,6 @@ export const getSearchParams = (query) => {
   const result = {};
 
   for (const [key, value] of params.entries()) {
-    // Handle multiple values for the same key
     if (result[key]) {
       if (Array.isArray(result[key])) {
         result[key].push(value);

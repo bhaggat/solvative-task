@@ -1,12 +1,12 @@
 import { useCallback, useMemo, useState } from "react";
-import { useSearchParamValues } from "../../hooks/useSearchParamValues";
+import { useSearch } from "../../hooks/useSearch";
 import styles from "./Pagination.module.css";
 import PropTypes from "prop-types";
 
 const MIN = 1;
 const MAX = 10;
 const Pagination = ({ total }) => {
-  const [{ limit, page }, updateSearchParams] = useSearchParamValues();
+  const { limit, page, updateSearchParams } = useSearch();
   const [limitState, setLimitState] = useState(limit);
   const handlePreviousClick = useCallback(() => {
     updateSearchParams({

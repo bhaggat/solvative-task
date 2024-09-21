@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef } from "react";
-import { useSearchParamValues } from "../../hooks/useSearchParamValues";
+import { useSearch } from "../../hooks/useSearch";
 import styles from "./SearchBar.module.css";
 
 const SearchBar = () => {
-  const [{ search }, updateSearchParams] = useSearchParamValues();
+  const { search, updateSearchParams } = useSearch();
   const searchRef = useRef();
   const handleOnSubmit = useCallback(
     (e) => {
